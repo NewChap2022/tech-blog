@@ -7,8 +7,7 @@
         {{#each posts as |post|}}
         <li class="post">
             {{> post-list post}}
-            <a class="post-function" href="/dashboard/edit/{{post.id}}" >Edit Post</a>
-            <a class="post-function delete-post" post-id="{{post.id}}" >Delete Post</a>
+            <a class="post-function" href="/dashboard/edit/post/{{post.id}}" >Edit Post</a>
         </li>
         {{/each}}
     </ul>
@@ -25,10 +24,12 @@
             <p class="comment-function">
                 <a class="comment-function-element" href="/post/{{comment.post_id}}">View</a>
                 <a class="comment-function-element" href="/dashboard/edit/comment/{{comment.id}}">Edit</a>
-                <a class="comment-function-element">Delete</a>
+                <a class="comment-function-element delete-comment" id="{{comment.id}}">Delete</a>
             </p>
         </li>
         {{/each}}
     </ul>
 </section>
 {{/if}}
+
+<script src="/javascript/deletecomment.js"></script>

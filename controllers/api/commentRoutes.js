@@ -67,7 +67,7 @@ router.post('/', withAuth, (req, res) => {
 });
 
 router.put('/:id', withAuth, (req, res) => {
-    User.update(req.body, {
+    Comment.update(req.body, {
         individualHooks: true,
         where: {
             id: req.params.id

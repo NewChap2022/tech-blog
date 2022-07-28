@@ -52,7 +52,15 @@ router.get('/', withAuth, (req, res) => {
         });
 });
 
-router.get('/edit/:id', withAuth, (req, res) => {
+router.get('/post/add', withAuth, (req, res) => {
+    if(req.session.loggedIn) {
+        res.render('addpost', { loggedIn: req.session.loggedIn });
+    } else {
+        res.redirect('/');
+    }
+});
+
+router.get('/edit/post/:id', withAuth, (req, res) => {
     Post.findOne({
         where: {
             id: req.params.id
@@ -75,6 +83,30 @@ router.get('/edit/:id', withAuth, (req, res) => {
             const post = dbPostData.get({ plain: true });
             if (req.session.user_id === post.user_id) {
                 res.render('editpost', { post, loggedIn: true });
+            } else {
+                res.redirect('/dashboard')
+            }
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
+router.get('/edit/comment/:id', withAuth, (req, res) => {
+    Comment.findOne({
+        where: {
+            id: req.params.id
+        },
+        attributes: [
+            'comment_text',
+            'user_id'
+        ],
+    })
+        .then(dbCommentData => {
+            const comment = dbCommentData.get({ plain: true });
+            if (req.session.user_id === comment.user_id) {
+                res.render('editcomment', { comment, loggedIn: true });
             } else {
                 res.redirect('/dashboard')
             }
