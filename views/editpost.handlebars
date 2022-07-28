@@ -1,0 +1,14 @@
+<article class="edit">
+    <h2>Edit Post</h2>
+    <form class="edit-post-form">
+        <div>
+            <input name="post-title" type="text" value="{{post.title}}" />
+        </div>
+        <div>
+            <textarea name="content" type="text">{{post.content}}</textarea>
+        </div>
+        <button type="submit">Save post</button>
+        <button type="button" class="delete-post-btn">Delete post</button>
+        </form>
+        <a href="/dashboard"> &larr; Back to dashboard</a>
+</article>

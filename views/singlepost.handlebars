@@ -1,0 +1,31 @@
+<section class="single-post">
+  <h3 class="single-post-title">{{post.title}}</h3>
+  <p class="details">By <span>{{post.user.username}}</span> on <span>{{formatDate post.created_at}}</span></p>
+  <p class="full-content">
+    {{post.content}}
+  </p>
+</section>
+
+<form class="comment-form">
+  <div>
+    <textarea class="comment-area" name="comment-body"></textarea>
+  </div>
+  <button type="submit">Add Comment</button>
+</form>
+
+{{#if post.comments.length}}
+<section class="post-comment">
+  <h4 class="comment-title">Comments</h4>
+  <ul>
+    {{#each post.comments as |comment|}}
+    <li>
+      <div class="comment-content">
+        <p>{{comment.comment_text}}<span>By {{comment.user.username}} on {{formatDate comment.created_at}}</span></p>
+      </div>
+    </li>
+    {{/each}}
+  </ul>
+</section>
+{{/if}}
+
+<script src="/javascript/comment.js"></script>

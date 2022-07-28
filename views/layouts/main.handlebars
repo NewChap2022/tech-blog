@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Blog</title>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <header class="row">
+            <div class="col-12 col-lg-4">
+                <h1 id="logo">
+                    Tech Blog
+                </h1>
+            </div>
+            <nav class="col-12 col-lg-8 row d-flex align-items-center">
+                <a class="col-6 col-lg" href="/">HOMEPAGE</a>
+                {{#if loggedIn}}
+                <a class="col-6 col-lg" href="/dashboard">DASHBOARD</a>
+                <a class="col-6 col-lg" id="logout">LOGOUT</a>
+                {{else}}
+                <a class="col-6 col-lg" href="/login">LOGIN</a>
+                <a class="col-6 col-lg" href="/signup">SIGN UP</a>
+                {{/if}}
+            </nav>
+        </header>
+
+        <main>
+            {{{ body }}}
+        </main>
+
+    <footer class="row">
+        <p>&copy; 2022 by <span>Shu Yang</span></p>
+    </footer>
+
+        <div id="pop-up">
+            <p id="alert-message"></p>
+            <button id="close-btn">Ok</button>
+        </div>
+    </div>
+    <script src="/javascript/modal.js"></script>
+    {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
+    {{/if}}
+</body>
