@@ -12,4 +12,8 @@ const limitedText = text => {
     return text;
 }
 
-module.exports = { formatDate, limitedText}
+const isAnd = (cond1, cond2, options) => {
+    return (cond1 &&  cond2) ? options.fn(this) : options.inverse(this);
+};
+
+module.exports = { formatDate, limitedText, isAnd}

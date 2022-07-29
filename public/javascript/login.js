@@ -16,11 +16,7 @@ async function loginFormHandler(event) {
         });
         
         if (response.ok) {
-            if (oldUrl.includes('/post/')) {
-                document.location.replace(document.referrer);
-            } else {
-                document.location.replace('/dashboard');
-            }
+            document.location.replace(document.referrer);
         } else {
             document.querySelector('#alert-message').textContent = response.statusText;
             document.querySelector('#pop-up').style.display = 'block'
