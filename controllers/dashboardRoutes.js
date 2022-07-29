@@ -2,6 +2,7 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
+const secondAuth = require('../utils/secondAuth');
 
 router.get('/', withAuth, (req, res) => {
     const dbPostData = 
@@ -52,7 +53,7 @@ router.get('/', withAuth, (req, res) => {
         });
 });
 
-router.get('/post/add', withAuth, (req, res) => {
+router.get('/post/add', secondAuth, withAuth, (req, res) => {
     if(req.session.loggedIn) {
         res.render('addpost', { loggedIn: req.session.loggedIn });
     } else {
@@ -60,7 +61,7 @@ router.get('/post/add', withAuth, (req, res) => {
     }
 });
 
-router.get('/edit/post/:id', withAuth, (req, res) => {
+router.get('/edit/post/:id', secondAuth, withAuth, (req, res) => {
     Post.findOne({
         where: {
             id: req.params.id
@@ -93,7 +94,7 @@ router.get('/edit/post/:id', withAuth, (req, res) => {
         });
 });
 
-router.get('/edit/comment/:id', withAuth, (req, res) => {
+router.get('/edit/comment/:id', secondAuth, withAuth, (req, res) => {
     Comment.findOne({
         where: {
             id: req.params.id

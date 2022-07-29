@@ -17,19 +17,17 @@
 {{#if comments.length}}
 <section>
     <h2 class="dashboard-title">Your Comments</h2>
-    <ul class="comment-list">
+    <ul class="comment-list container-fluid">
         {{#each comments as |comment|}}
-        <li class="comment">
-            {{> comment-list comment}}
-            <p class="comment-function">
+        <li class="comment row">
+            <p class="comment-text col-12">{{comment.comment_text}}</p>
+            <p class="comment-function col-12 col-md-8 row">
                 <a class="comment-function-element" href="/post/{{comment.post_id}}">View</a>
                 <a class="comment-function-element" href="/dashboard/edit/comment/{{comment.id}}">Edit</a>
-                <a class="comment-function-element delete-comment" id="{{comment.id}}">Delete</a>
             </p>
+            <p class="comment-details text-end col-12 col-md-4">on <strong>{{formatDate comment.created_at}}</strong> of <strong>{{comment.post.title}}</strong></p>
         </li>
         {{/each}}
     </ul>
 </section>
 {{/if}}
-
-<script src="/javascript/deletecomment.js"></script>

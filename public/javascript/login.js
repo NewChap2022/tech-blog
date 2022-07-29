@@ -1,8 +1,9 @@
 async function loginFormHandler(event) {
     event.preventDefault();
-
+    
     const username = document.querySelector('#username-login').value.trim();
     const password = document.querySelector('#password-login').value.trim();
+    const oldUrl = document.referrer;
 
     if (username && password) {
         const response = await fetch('/api/users/login', {
@@ -15,7 +16,11 @@ async function loginFormHandler(event) {
         });
         
         if (response.ok) {
-            document.location.replace('/dashboard');
+            if (oldUrl.includes('/post/')) {
+                document.location.replace(document.referrer);
+            } else {
+                document.location.replace('/dashboard');
+            }
         } else {
             document.querySelector('#alert-message').textContent = response.statusText;
             document.querySelector('#pop-up').style.display = 'block'

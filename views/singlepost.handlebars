@@ -6,21 +6,26 @@
   </p>
 </section>
 
+{{#if loggedIn}}
 <form class="comment-form">
   <div>
     <textarea class="comment-area" name="comment-body"></textarea>
   </div>
   <button type="submit">Add Comment</button>
 </form>
+{{else}}
+<p class="text-center">Please <a href="/login">login in</a> to leave a comment</p>
+{{/if}}
 
 {{#if post.comments.length}}
-<section class="post-comment">
+<section class="post-comment container-fluid">
   <h4 class="comment-title">Comments</h4>
   <ul>
     {{#each post.comments as |comment|}}
     <li>
-      <div class="comment-content">
-        <p>{{comment.comment_text}}<span>By {{comment.user.username}} on {{formatDate comment.created_at}}</span></p>
+      <div class="comment-content row">
+        <p class="col-12">{{comment.comment_text}}</p>
+        <p class="col-12 text-end">By {{comment.user.username}} on {{formatDate comment.created_at}}</p>
       </div>
     </li>
     {{/each}}
@@ -28,4 +33,6 @@
 </section>
 {{/if}}
 
+{{#if loggedIn}}
 <script src="/javascript/comment.js"></script>
+{{/if}}

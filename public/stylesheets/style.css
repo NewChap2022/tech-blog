@@ -193,18 +193,14 @@ button:hover {
     margin: 20px;
 }
 
-.comment-content span {
-    float: right;
-}
-
 .comment-form {
     text-align: center;
     margin: 10px;
 }
 
 .comment-area {
-    width: 800px;
-    height: 100px;
+    min-width: 300px;
+    min-height: 100px;
 }
 
 .edit-comment-form textarea {
