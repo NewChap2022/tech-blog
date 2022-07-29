@@ -6,12 +6,16 @@
 
 :root {
     --primary: #05668d;
-    --secondary: #02c39a;
+    --secondary: #00a896;
     --teritary: #f0f3bd;
 }
 
 a {
     text-decoration: none;
+}
+
+li {
+    list-style: none;
 }
 
 header {
@@ -201,6 +205,12 @@ button:hover {
 .comment-area {
     min-width: 300px;
     min-height: 100px;
+}
+
+.comment-content {
+    background-color: var(--secondary);
+    margin: 5px;
+    color: white;
 }
 
 .edit-comment-form textarea {
