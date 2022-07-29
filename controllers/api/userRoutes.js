@@ -126,7 +126,7 @@ router.post('/login', (req, res) => {
                 req.session.user_id = dbUserData.id;
                 req.session.username = dbUserData.username;
                 req.session.loggedIn = true;
-                res.cookie('secondAuth', Math.floor(Math.random() * 100), { expires: new Date(Date.now() + 30 * 60 * 1000), httpOnly: true});
+                res.cookie('secondAuth', Math.floor(Math.random() * 100), { expires: new Date(Date.now() + 30 * 60 * 1000)});
                 res.json({ user: dbUserData, message: 'You are now logged in!' });
             });
             

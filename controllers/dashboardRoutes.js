@@ -53,7 +53,7 @@ router.get('/', withAuth, (req, res) => {
         });
 });
 
-router.get('/post/add', secondAuth, withAuth, (req, res) => {
+router.get('/post/add', secondAuth, (req, res) => {
     if(req.session.loggedIn) {
         res.render('addpost', { loggedIn: req.session.loggedIn });
     } else {
@@ -61,7 +61,7 @@ router.get('/post/add', secondAuth, withAuth, (req, res) => {
     }
 });
 
-router.get('/edit/post/:id', secondAuth, withAuth, (req, res) => {
+router.get('/edit/post/:id', secondAuth, (req, res) => {
     Post.findOne({
         where: {
             id: req.params.id
@@ -94,7 +94,7 @@ router.get('/edit/post/:id', secondAuth, withAuth, (req, res) => {
         });
 });
 
-router.get('/edit/comment/:id', secondAuth, withAuth, (req, res) => {
+router.get('/edit/comment/:id', secondAuth, (req, res) => {
     Comment.findOne({
         where: {
             id: req.params.id

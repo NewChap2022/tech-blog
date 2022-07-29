@@ -6,7 +6,7 @@
   </p>
 </section>
 
-{{#if loggedIn}}
+{{#if loggedIn}} {{#if cookieCheck}}
 <form class="comment-form">
   <div>
     <textarea class="comment-area" name="comment-body"></textarea>
@@ -15,7 +15,7 @@
 </form>
 {{else}}
 <p class="text-center">Please <a href="/login">login in</a> to leave a comment</p>
-{{/if}}
+{{/if}} {{/if}}
 
 {{#if post.comments.length}}
 <section class="post-comment container-fluid">
@@ -33,6 +33,6 @@
 </section>
 {{/if}}
 
-{{#if loggedIn}}
+{{#if loggedIn}} {{#if cookieCheck}}
 <script src="/javascript/comment.js"></script>
-{{/if}}
+{{/if}} {{/if}}

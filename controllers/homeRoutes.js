@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
-const withAuth = require('../utils/auth');
 
 router.get('/', (req, res) => {
     Post.findAll({
@@ -88,9 +87,11 @@ router.get('/post/:id', (req, res) => {
         }
   
         const post = dbPostData.get({ plain: true });
+        const check = Boolean(req.cookies['secondAuth']);
         res.render('singlepost', { 
           post,
-          loggedIn: req.session.loggedIn
+          loggedIn: req.session.loggedIn,
+          cookieCheck: check
         });
       })
       .catch(err => {
