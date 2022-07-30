@@ -14,12 +14,18 @@ router.get('/', (req, res) => {
         order: [['created_at', 'DESC']],
         include: [
             {
-                model: Comment,
-                attributes: ['id']
-            },
-            {
                 model: User,
                 attributes: ['username']
+            },
+            {
+                model: Comment,
+                attributes: ['comment_text'],
+                include: [
+                    {
+                        model: User,
+                        attributes: ['username']
+                    }
+                ]
             }
         ]
     })
