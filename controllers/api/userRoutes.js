@@ -58,6 +58,7 @@ router.post('/', (req, res) => {
             req.session.user_id = dbUserData.id;
             req.session.username = dbUserData.username;
             req.session.loggedIn = true;
+            res.cookie('secondAuth', Math.floor(Math.random() * 100), { expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), path: '/'});
             res.json(dbUserData);
         })
         .catch(err => {
@@ -126,7 +127,7 @@ router.post('/login', (req, res) => {
                 req.session.user_id = dbUserData.id;
                 req.session.username = dbUserData.username;
                 req.session.loggedIn = true;
-                res.cookie('secondAuth', Math.floor(Math.random() * 100), { expires: new Date(Date.now() + 30 * 60 * 1000), path: '/'});
+                res.cookie('secondAuth', Math.floor(Math.random() * 100), { expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), path: '/'});
                 res.json({ user: dbUserData, message: 'You are now logged in!' });
             });
             
