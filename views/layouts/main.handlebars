@@ -12,19 +12,19 @@
 <body>
     <div class="container-fluid">
         <header class="row">
-            <div class="col-12 col-lg-4">
+            <div class="col-12 col-md-4">
                 <h1 id="logo">
                     Tech Blog
                 </h1>
             </div>
-            <nav class="col-12 col-lg-8 row d-flex align-items-center">
-                <a class="col-6 col-lg" href="/">HOMEPAGE</a>
+            <nav class="col-12 col-md-8 row d-flex align-items-center">
+                <a class="col-6 col-md" href="/">HOMEPAGE</a>
                 {{#if loggedIn}}
-                <a class="col-6 col-lg" href="/dashboard">DASHBOARD</a>
-                <a class="col-6 col-lg" id="logout">LOGOUT</a>
+                <a class="col-6 col-md" href="/dashboard">DASHBOARD</a>
+                <a class="col-6 col-md" id="logout">LOGOUT</a>
                 {{else}}
-                <a class="col-6 col-lg" href="/login">LOGIN</a>
-                <a class="col-6 col-lg" href="/signup">SIGN UP</a>
+                <a class="col-6 col-md" href="/login">LOGIN</a>
+                <a class="col-6 col-md" href="/signup">SIGN UP</a>
                 {{/if}}
             </nav>
         </header>
