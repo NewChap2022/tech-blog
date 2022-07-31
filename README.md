@@ -23,6 +23,9 @@ node.js, express, sequelize, bcrypt, dotenv, handlebars, express-session, connec
 ## Reflection
 This is my first time to create a full stack website. I had difficulty to differentiate what is allowed to use in frontend and in backend. Practice is the best teacher. It allows me to find out where my knowledge is lacked and what I was missing when I was learning. I learned a lot through this project including knowledge about cookies and how to use them.
 
+## Deployed App Link
+
+
 ## Screenshots
 
 **HOMEPAGE**
