@@ -20,7 +20,8 @@ async function editFormHandler(event) {
         if (response.ok) {
             document.location.replace('/dashboard/');
         } else {
-            document.querySelector('#alert-message').textContent = response.statusText;
+            const res = await response.json();
+            document.querySelector('#alert-message').textContent = res.message;
             document.querySelector('#pop-up').style.display = 'block';
         }
     } else {

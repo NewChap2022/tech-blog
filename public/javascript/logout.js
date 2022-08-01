@@ -7,7 +7,8 @@ async function logout() {
     if (response.ok) {
         document.location.replace('/')
     } else {
-        document.querySelector("#alert-message").textContent = response.statusText;
+        const res = await response.json();
+        document.querySelector("#alert-message").textContent = res.message;
         document.querySelector('#pop-up').style.display = 'block'
     }
 };
