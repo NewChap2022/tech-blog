@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3001;
 
 const sess = {
   secret: 'Secret',
-  cookie: { expires: new Date(Date.now() + (2 * 60 * 60 * 1000)),},
+  cookie: { expires: new Date(Date.now() + (2 * 60 * 60 * 1000))},
   resave: true,
   rolling: true,
   saveUninitialized: true,
